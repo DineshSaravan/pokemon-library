@@ -11,7 +11,7 @@
 $ git clone https://github.com/DineshSaravan/pokemon-library.git
 ```
 
-## Prerequisites
+## :mag: Prerequisites
 
 Before attempting to use Pokemon Library locally make sure you have the following
 installed:
@@ -20,7 +20,7 @@ installed:
 
 ### Pokemon GraphQL api
 * Clone the Pokemon GraphQL api
-  * ```
+  ```
     $ git clone https://github.com/lucasbento/graphql-pokemon.git
     ```
 * #### Production
@@ -41,7 +41,7 @@ or
 vercel dev # npm i -g @now/cli
 ```
 
-## :key: Running
+## :wrench: Running
 ```sh
 yarn install
 yarn start
