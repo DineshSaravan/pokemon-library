@@ -140,7 +140,7 @@ export const DataListView: FC = () => {
 
     function getPreviousPokemon(pokeNumber: number | undefined): void {
         if (!pokeNumber) {
-            setModalShow(true);
+            setModalShow(false);
         }
         let pokePosition: number = pokemonList.findIndex((value => value.number === pokeNumber));
         getPokeInfo(pokemonList.slice(--pokePosition)[0].id)
@@ -148,7 +148,7 @@ export const DataListView: FC = () => {
 
     function getNextPokemon(pokeNumber: number | undefined): void {
         if (!pokeNumber) {
-            setModalShow(true);
+            setModalShow(false);
         }
         let pokePosition: number = pokemonList.findIndex((value => value.number === pokeNumber));
         getPokeInfo(pokemonList.slice(++pokePosition)[0].id)
@@ -243,7 +243,7 @@ export const DataListView: FC = () => {
           </div>
           <PokeInfoModal
               show={modalShow}
-              onHide={() => {history.push(`/pokemons/`); setModalShow(false)}}
+              onHide={() => {history.push(`/pokemons`); setModalShow(false)}}
           />
       </>
   );
