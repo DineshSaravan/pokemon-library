@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {FC} from 'react';
+import {Redirect, Route, Switch} from 'react-router-dom';
+import pokeball from './pokeball.png'
 import './App.css';
+import DataListView from "./views/DataLists/DataListView";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App: FC = () => {
+    return (
+        <div className="App">
+            <header className="App-header">
+                <img src={pokeball} className="App-logo" alt="logo" />
+            </header>
+            <Switch>
+                <Route exact path="/pokemons" component={DataListView}/>
+                <Route exact path="/pokemons/:number" component={DataListView}/>
+
+                <Redirect exact from="/" to="/pokemons"/>
+            </Switch>
+        </div>
+    );
+};
 
 export default App;
