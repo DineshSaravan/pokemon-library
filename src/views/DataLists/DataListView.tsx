@@ -6,7 +6,7 @@ import "./DataListView.scss";
 import pokeApi from "../../api";
 import {useEffect, useState, useCallback} from "react";
 import {pokeAttackData, PokemonDetails, PokemonMetaData} from "../../common/pokemon-interface";
-import {pokemonsListQuery} from "../../query";
+import {pokemonsListQuery} from "../../common/query";
 import {
     Badge,
     Button,
@@ -15,7 +15,7 @@ import {
     ListGroup,
     ListGroupItem,
     Modal,
-    ProgressBar, Table
+    ProgressBar,
 } from "react-bootstrap";
 import {BadgePillStyle, PokemonTypes} from "../../common/PokemonTypes";
 import {useHistory} from "react-router";
@@ -44,6 +44,8 @@ export const DataListView: FC = () => {
         fetchData();
     }, [fetchData]);
 
+    // Badge component - background variant isn't working in react-bootstrap
+    // This logic belongs to style pokemon type badge based on it's type data
     function badgeType(pokemonType: string): string {
         switch (pokemonType) {
             case PokemonTypes.BUG:
@@ -114,7 +116,7 @@ export const DataListView: FC = () => {
     const renderAttackInfo = (attackInfo: pokeAttackData): JSX.Element => {
         return (
             <div className="attack-info-container">
-                <label className="attack-label">{attackInfo.name}</label>
+                <label className="attack-label help-text-style">{attackInfo.name}</label>
                 <Badge className="attack-type">{attackInfo.type}</Badge>
                 <ProgressBar className="attack-damage-bar" now={attackInfo.damage} label={`${attackInfo.damage}%`} />
             </div>
@@ -156,7 +158,7 @@ export const DataListView: FC = () => {
             >
                 <Modal.Header closeButton closeLabel="">
                     <Modal.Title id="contained-modal-title-vcenter">
-                        {pokemonInfo?.name}
+                        {`${pokemonInfo?.name} (#${pokemonInfo?.number})`}
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
@@ -188,7 +190,7 @@ export const DataListView: FC = () => {
                     </div>
                 </Modal.Body>
                 <Modal.Footer>
-                    <div className="">
+                    <div>
                         <Button
                             className="footer-button"
                             disabled={pokemonInfo?.number.toString() === "001"}
