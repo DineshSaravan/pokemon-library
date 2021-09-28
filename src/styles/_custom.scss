@@ -1,0 +1,25 @@
+@import "variables";
+.badge {
+  background-color: $dark-amber;
+  color: $black !important;
+  align-self: center;
+  width: 100px;
+  margin-right: 5px;
+  border-radius: 0.75rem !important;
+}
+
+.modal-xl {
+  width: 900px;
+  height: 1200px;
+}
+
+.modal-footer {
+  justify-content: center !important;
+}
+
+.list-group-item.active {
+  background-color: #20578f !important;
+  border-color: #20578f !important;
+}
+
+@import "node_modules/bootstrap/scss/bootstrap";
