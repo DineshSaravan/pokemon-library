@@ -1,4 +1,4 @@
-import {PokemonCount} from "./common/pokemon-interface";
+import {PokemonCount} from "./pokemon-interface";
 
 export const pokemonsListQuery = {
     query: `
