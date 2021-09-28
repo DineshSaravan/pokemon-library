@@ -1,4 +1,7 @@
 <h1 align="center">Pokemon Library</h1>
+<p align="center">
+  <img src="https://github.com/DineshSaravan/pokemon-library/blob/master/public/homepage.png">
+</p>
 
 <div align= "center">
   <h4>Pokemon Library web application - React + GraphQL</h4>
