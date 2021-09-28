@@ -104,7 +104,7 @@ export const DataListView: FC = () => {
             .then(data => {
                 const pokeNum: number = data.data.pokemon.number;
                 setPokemonInfo(data.data.pokemon);
-                setModalShow(true)
+                setModalShow(true);
                 history.push( `/pokemons/${pokeNum}`);
             })
             .catch(err => {
@@ -139,11 +139,17 @@ export const DataListView: FC = () => {
     };
 
     function getPreviousPokemon(pokeNumber: number | undefined): void {
+        if (!pokeNumber) {
+            setModalShow(true);
+        }
         let pokePosition: number = pokemonList.findIndex((value => value.number === pokeNumber));
         getPokeInfo(pokemonList.slice(--pokePosition)[0].id)
     }
 
     function getNextPokemon(pokeNumber: number | undefined): void {
+        if (!pokeNumber) {
+            setModalShow(true);
+        }
         let pokePosition: number = pokemonList.findIndex((value => value.number === pokeNumber));
         getPokeInfo(pokemonList.slice(++pokePosition)[0].id)
     }
